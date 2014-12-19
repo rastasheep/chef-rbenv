@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-include_recipe "rbenv::user_install"
+include_recipe "rbenv-deprecated::user_install"
 
 Array(node['rbenv']['user_installs']).each do |rbenv_user|
   plugins   = rbenv_user['plugins'] || node['rbenv']['user_plugins']

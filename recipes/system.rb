@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-include_recipe "rbenv::system_install"
+include_recipe "rbenv-deprecated::system_install"
 
 Array(node['rbenv']['plugins']).each do |plugin|
   rbenv_plugin plugin['name'] do
