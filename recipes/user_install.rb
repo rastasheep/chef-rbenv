@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-include_recipe 'rbenv-deprecated'
+include_recipe 'rbenvdep'
 
 install_rbenv_pkg_prereqs
 

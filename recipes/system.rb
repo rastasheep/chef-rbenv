@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-include_recipe "rbenv-deprecated::system_install"
+include_recipe "rbenvdep::system_install"
 
 Array(node['rbenv']['plugins']).each do |plugin|
   rbenv_plugin plugin['name'] do
@@ -28,23 +28,23 @@ end
 
 Array(node['rbenv']['rubies']).each do |rubie|
   if rubie.is_a?(Hash)
-    rbenv_ruby rubie['name'] do
+    rbenvdep_ruby rubie['name'] do
       environment rubie['environment'] if rubie['environment']
       definition_file rubie['definition_file'] if rubie['definition_file']
     end
   else
-    rbenv_ruby rubie
+    rbenvdep_ruby rubie
   end
 end
 
 if node['rbenv']['global']
-  rbenv_global node['rbenv']['global']
+  rbenvdep_global node['rbenv']['global']
 end
 
 node['rbenv']['gems'].each_pair do |rubie, gems|
   Array(gems).each do |gem|
-    rbenv_gem gem['name'] do
-      rbenv_version rubie
+    rbenvdep_gem gem['name'] do
+      rbenvdep_version rubie
 
       %w{version action options source}.each do |attr|
         send(attr, gem[attr]) if gem[attr]
