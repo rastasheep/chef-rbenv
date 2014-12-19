@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-include_recipe 'rbenv'
+include_recipe 'rbenv-deprecated'
 
 upgrade_strategy  = build_upgrade_strategy(node['rbenv']['upgrade'])
 git_url           = node['rbenv']['git_url']
