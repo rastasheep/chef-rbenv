@@ -20,7 +20,7 @@
 include_recipe "rbenvdep::system_install"
 
 Array(node['rbenv']['plugins']).each do |plugin|
-  rbenv_plugin plugin['name'] do
+  rbenvdep_plugin plugin['name'] do
     git_url plugin['git_url']
     git_ref plugin['git_ref'] if plugin['git_ref']
   end

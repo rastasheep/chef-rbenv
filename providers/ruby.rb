@@ -60,7 +60,7 @@ def perform_install
     rbenv_env     = @environment
     command       = %{rbenv install #{definition}}
 
-    rbenv_script "#{command} #{which_rbenv}" do
+    rbenvdep_script "#{command} #{which_rbenv}" do
       code        command
       user        rbenv_user    if rbenv_user
       root_path   rbenv_prefix  if rbenv_prefix
